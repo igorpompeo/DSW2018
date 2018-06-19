@@ -5,27 +5,41 @@
 	<title>Exercício 1</title>
 </head>
 <body>
-	<script scr="scritpweb.js"></script>
 	<fieldset>
 		<legend>Formulário:</legend>
 		<form id="cad">
 			<label for="nome">Digite seu nome:</label><br>
-			<input type="text" name="nome" pattern="[A-Z][a-z]+[ ][A-Z][a-z]+"><br>
+			<input type="text" id="nome" name="nome" pattern="[A-Z][a-z]+[ ][A-Z][a-z]+"><br>
 			<label for="idade">Idade:</label><br>
-			<input type="date" name="idade"><br>
+			<input type="date" id="idade" name="idade"><br>
 			<label for="cpf">CPF:</label><br>
-			<input type="text" name="cpf" pattern="[0-9]{3}[.][0-9]{3}[.][0-9]{3}[-][0-9]{2}"><br>
+			<input type="text" id="cpf" name="cpf" pattern="[0-9]{3}[.][0-9]{3}[.][0-9]{3}[-][0-9]{2}"><br>
 			<label for="cep">CEP:</label><br>
-			<input type="text" name="cep" pattern="[0-9]{2}[.][0-9]{3}[-][0-9]{3}"><br>
+			<input type="text" id="cep" name="cep" pattern="[0-9]{2}[.][0-9]{3}[-][0-9]{3}"><br>
 			<label for="email">Digite seu email:</label></br>
-			<input type="email" name="email" pattern="[^. ][A-Za-z0-9.]*[^. ][@][A-Za-z0-9.]*[^. ]"/><br>
+			<input type="email" id="email" name="email" pattern="[^. ][A-Za-z0-9.]*[^. ][@][A-Za-z0-9.]*[^. ]"/><br>
 			<label for="senha">Digite sua senha:</label><br>
-			<input type="password" name="senha" pattern="[^. ][A-Za-z0-9.]*[^. ][@][A-Za-z0-9.]*[^. ]"/><br>
+			<input type="password" id="senha" name="senha" pattern="[^. ][A-Za-z0-9.]*[^. ][@][A-Za-z0-9.]*[^. ]"/><br>
 			<label for="senhaTmp">Confirme sua senha:</label><br>
-			<input type="password" name="senhaTmp" pattern="[^. ][A-Za-z0-9.]*[^. ][@][A-Za-z0-9.]*[^. ]"/><br>
-			<input type="reset" name="limpar"/><br>
-			<input type="submit" onclick="return validarSenha()" value="Cadastrar"/><br>
+			<input type="password" id="senhaTmp" name="senhaTmp" pattern="[^. ][A-Za-z0-9.]*[^. ][@][A-Za-z0-9.]*[^. ]"/><br>
+			<input type="reset" name="limpar"/><br><br>
+			<input type="submit" onclick="return validarSenha()" value="Cadastrar"/><br><br>
 		</form>
 	</fieldset>
+	<script>
+		function validarSenha() {
+			var senha1 = document.getElementById("senha");
+			var senha2 = document.getElementById("senhaTmp");
+			var s1 = senha1.value;
+			var s2 = senha2.value;
+			if(s1 == s2) {
+				alert("Dados Cadastrados");
+				return true;
+			} else {
+				alert("Senhas não batem. Verifique o valor digitado.");
+				return false;
+			}
+		}
+	</script>
 </body>
 </html>
